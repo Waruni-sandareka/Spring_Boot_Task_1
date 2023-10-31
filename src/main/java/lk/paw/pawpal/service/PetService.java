@@ -12,7 +12,7 @@ public class PetService {
 
     public PetService(){
         Pet pt1 = new Pet();
-        pt1.setName("Sookiri");
+        pt1.setName("Sookiriya");
         pt1.setId("001");
         pt1.setBreed("Cat");
 
