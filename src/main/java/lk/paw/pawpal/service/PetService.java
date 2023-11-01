@@ -4,6 +4,8 @@ import lk.paw.pawpal.model.Pet;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 public class PetService {
@@ -34,6 +36,11 @@ public class PetService {
     public Pet getSpecificPet(String id){
 
         return petList.stream().filter(s-> s.getId().equals(id)).findFirst().get();
+    }
+
+    public List<Pet> addPet(Pet pet){
+        return Stream.of(pet).collect(Collectors.toCollection(()->petList));
+
     }
 
 }

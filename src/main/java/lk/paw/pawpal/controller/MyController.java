@@ -3,9 +3,7 @@ package lk.paw.pawpal.controller;
 import lk.paw.pawpal.model.Pet;
 import lk.paw.pawpal.service.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,4 +30,10 @@ public class MyController {
 
         return petService.getSpecificPet(id);
     }
+
+    @PostMapping("/addPet")
+    public List<Pet> addPet(@RequestBody Pet pet){
+        return petService.addPet(pet);
+    }
+
 }
