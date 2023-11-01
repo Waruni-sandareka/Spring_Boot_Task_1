@@ -43,4 +43,27 @@ public class PetService {
 
     }
 
+    public String updatePet(Pet pet){
+        try {
+            petList.stream().filter(p -> p.getId().equals(pet.getId())).forEach(p -> {
+                p.setName(pet.getName());
+                p.setBreed(pet.getBreed());
+            });
+            return "Successfully updated";
+        }
+        catch (Exception e){
+            return "Error Occured";
+
+        }
+
+    }
+
+    public String deletePet(String id){
+        boolean result = petList.removeIf(p->p.getId().equals(id));
+        if(result)
+            return "Successfully deleted" +id;
+        else
+            return "Something went wrong";
+    }
+
 }

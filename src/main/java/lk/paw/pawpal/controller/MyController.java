@@ -36,4 +36,14 @@ public class MyController {
         return petService.addPet(pet);
     }
 
+    @PutMapping("/updatePet")
+    public String updatePet(@RequestBody Pet pet){
+        return petService.updatePet(pet);
+    }
+
+    @DeleteMapping("/deletePet/{id}")
+    public String deletePet(@PathVariable String id){
+        return petService.deletePet(id);
+    }
+
 }
